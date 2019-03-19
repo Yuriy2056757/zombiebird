@@ -3,11 +3,12 @@ package com.kilobolt.gameobjects;
 import com.badlogic.gdx.math.Vector2;
 
 public class Bird {
+
   private Vector2 position;
   private Vector2 velocity;
   private Vector2 acceleration;
 
-  private float rotation; // For handling bird rotation
+  private float rotation;
   private int width;
   private int height;
 
@@ -18,14 +19,9 @@ public class Bird {
     velocity = new Vector2(0, 0);
     acceleration = new Vector2(0, 460);
   }
-  
 
-  // Delta is the amount of time since the last
-  // render method has been called
   public void update(float delta) {
 
-    // Add a SCALED acceleration to our
-    // existing velocity
     velocity.add(acceleration.cpy().scl(delta));
 
     if (velocity.y > 200) {
@@ -33,6 +29,7 @@ public class Bird {
     }
 
     position.add(velocity.cpy().scl(delta));
+
   }
 
   public void onClick() {
@@ -42,7 +39,7 @@ public class Bird {
   public float getX() {
     return position.x;
   }
-  
+
   public float getY() {
     return position.y;
   }
@@ -58,4 +55,5 @@ public class Bird {
   public float getRotation() {
     return rotation;
   }
+
 }
