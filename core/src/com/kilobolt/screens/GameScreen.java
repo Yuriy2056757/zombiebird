@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.kilobolt.gameworld.GameRenderer;
 import com.kilobolt.gameworld.GameWorld;
+import com.kilobolt.zbHelpers.InputHandler;
 
 public class GameScreen implements Screen {
 
