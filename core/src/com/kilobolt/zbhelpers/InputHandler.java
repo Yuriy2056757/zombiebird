@@ -1,4 +1,4 @@
-package com.kilobolt.zbHelpers;
+package com.kilobolt.zbhelpers;
 
 import com.badlogic.gdx.InputProcessor;
 import com.kilobolt.gameobjects.Bird;
