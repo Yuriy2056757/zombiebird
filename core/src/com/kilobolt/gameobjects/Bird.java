@@ -3,7 +3,6 @@ package com.kilobolt.gameobjects;
 import com.badlogic.gdx.math.Vector2;
 
 public class Bird {
-
   private Vector2 position;
   private Vector2 velocity;
   private Vector2 acceleration;
@@ -21,7 +20,6 @@ public class Bird {
   }
 
   public void update(float delta) {
-
     velocity.add(acceleration.cpy().scl(delta));
 
     if (velocity.y > 200) {
@@ -30,6 +28,23 @@ public class Bird {
 
     position.add(velocity.cpy().scl(delta));
 
+    // Rotate counterclockwise
+    if (velocity.y < 0) {
+      rotation -= 600 * delta;
+
+      if (rotation < -20) {
+        rotation = -20;
+      }
+    }
+
+    // Rotate clockwise
+    if (isFalling()) {
+      rotation += 480 * delta;
+
+      if (rotation > 90) {
+        rotation = 90;
+      }
+    }
   }
 
   public void onClick() {
@@ -56,4 +71,11 @@ public class Bird {
     return rotation;
   }
 
+  public boolean isFalling() {
+    return velocity.y > 110;
+  }
+
+  public boolean shouldntFlap() {
+    return velocity.y > 70;
+  }
 }
