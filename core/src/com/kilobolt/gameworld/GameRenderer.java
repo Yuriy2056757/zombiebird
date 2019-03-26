@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.kilobolt.gameobjects.Bird;
 import com.kilobolt.zbhelpers.AssetLoader;
 
@@ -79,7 +80,7 @@ public class GameRenderer {
     // Draw bird at its coordinates. Retrieve the Animation object from
     // AssetLoader
     // Pass in the runTime variable to get the current frame.
-    batcher.draw(AssetLoader.birdAnimation.getKeyFrame(runTime),
+    batcher.draw((TextureRegion) AssetLoader.birdAnimation.getKeyFrame(runTime),
             bird.getX(), bird.getY(), bird.getWidth(), bird.getHeight());
 
     // End SpriteBatch
