@@ -1,6 +1,7 @@
 package com.kilobolt.gameworld;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -8,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.math.Rectangle;
 import com.kilobolt.gameobjects.Bird;
 import com.kilobolt.gameobjects.Grass;
 import com.kilobolt.gameobjects.Pipe;
@@ -172,8 +174,17 @@ public class GameRenderer {
               1, 1, bird.getRotation());
     }
 
+    // Convert integer into String
+    String score = myWorld.getScore() + "";
+
+    // Draw shadow first
+    AssetLoader.shadow.draw(batcher, "" + myWorld.getScore(), (136 / 2)
+            - (3 * score.length()), 12);
+    // Draw text
+    AssetLoader.font.draw(batcher, "" + myWorld.getScore(), (136 / 2)
+            - (3 * score.length() - 1), 11);
+
     batcher.end();
 
   }
-
 }
