@@ -21,7 +21,7 @@ public class Pipe extends Scrollable {
   // When Pipe's constructor is invoked, invoke the super (Scrollable)
   // constructor
   public Pipe(float x, float y, int width, int height, float scrollSpeed,
-              float groundY) {
+      float groundY) {
     super(x, y, width, height, scrollSpeed);
     // Initialize a Random object for Random number generation
     r = new Random();
@@ -44,7 +44,7 @@ public class Pipe extends Scrollable {
 
     barUp.set(position.x, position.y, width, height);
     barDown.set(position.x, position.y + height + VERTICAL_GAP, width,
-            groundY - (position.y + height + VERTICAL_GAP));
+        groundY - (position.y + height + VERTICAL_GAP));
 
     // Our skull width is 24. The bar is only 22 pixels wide. So the skull
     // must be shifted by 1 pixel to the left (so that the skull is centered
@@ -52,9 +52,9 @@ public class Pipe extends Scrollable {
 
     // This shift is equivalent to: (SKULL_WIDTH - width) / 2
     skullUp.set(position.x - (SKULL_WIDTH - width) / 2, position.y + height
-            - SKULL_HEIGHT, SKULL_WIDTH, SKULL_HEIGHT);
+        - SKULL_HEIGHT, SKULL_WIDTH, SKULL_HEIGHT);
     skullDown.set(position.x - (SKULL_WIDTH - width) / 2, barDown.y,
-            SKULL_WIDTH, SKULL_HEIGHT);
+        SKULL_WIDTH, SKULL_HEIGHT);
 
   }
 
@@ -86,9 +86,9 @@ public class Pipe extends Scrollable {
   public boolean collides(Bird bird) {
     if (position.x < bird.getX() + bird.getWidth()) {
       return (Intersector.overlaps(bird.getBoundingCircle(), barUp)
-              || Intersector.overlaps(bird.getBoundingCircle(), barDown)
-              || Intersector.overlaps(bird.getBoundingCircle(), skullUp) || Intersector
-              .overlaps(bird.getBoundingCircle(), skullDown));
+          || Intersector.overlaps(bird.getBoundingCircle(), barDown)
+          || Intersector.overlaps(bird.getBoundingCircle(), skullUp) || Intersector
+          .overlaps(bird.getBoundingCircle(), skullDown));
     }
     return false;
   }
@@ -99,5 +99,10 @@ public class Pipe extends Scrollable {
 
   public void setScored(boolean b) {
     isScored = b;
+  }
+
+  public void onRestart(float x, float scrollSpeed) {
+    velocity.x = scrollSpeed;
+    reset(x);
   }
 }

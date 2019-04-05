@@ -7,7 +7,6 @@ import com.kilobolt.gameworld.GameWorld;
 import com.kilobolt.zbhelpers.InputHandler;
 
 public class GameScreen implements Screen {
-
   private GameWorld world;
   private GameRenderer renderer;
   private float runTime = 0;
@@ -25,8 +24,7 @@ public class GameScreen implements Screen {
     world = new GameWorld(midPointY);
     renderer = new GameRenderer(world, (int) gameHeight, midPointY);
 
-    Gdx.input.setInputProcessor(new InputHandler(world.getBird()));
-
+    Gdx.input.setInputProcessor(new InputHandler(world));
   }
 
   @Override

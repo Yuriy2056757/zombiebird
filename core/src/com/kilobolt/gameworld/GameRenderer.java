@@ -83,9 +83,9 @@ public class GameRenderer {
   private void drawGrass() {
     // Draw the grass
     batcher.draw(grass, frontGrass.getX(), frontGrass.getY(),
-            frontGrass.getWidth(), frontGrass.getHeight());
+        frontGrass.getWidth(), frontGrass.getHeight());
     batcher.draw(grass, backGrass.getX(), backGrass.getY(),
-            backGrass.getWidth(), backGrass.getHeight());
+        backGrass.getWidth(), backGrass.getHeight());
   }
 
   private void drawSkulls() {
@@ -93,38 +93,38 @@ public class GameRenderer {
     // We will fix this when we finish the Pipe class.
 
     batcher.draw(skullUp, pipe1.getX() - 1,
-            pipe1.getY() + pipe1.getHeight() - 14, 24, 14);
+        pipe1.getY() + pipe1.getHeight() - 14, 24, 14);
     batcher.draw(skullDown, pipe1.getX() - 1,
-            pipe1.getY() + pipe1.getHeight() + 45, 24, 14);
+        pipe1.getY() + pipe1.getHeight() + 45, 24, 14);
 
     batcher.draw(skullUp, pipe2.getX() - 1,
-            pipe2.getY() + pipe2.getHeight() - 14, 24, 14);
+        pipe2.getY() + pipe2.getHeight() - 14, 24, 14);
     batcher.draw(skullDown, pipe2.getX() - 1,
-            pipe2.getY() + pipe2.getHeight() + 45, 24, 14);
+        pipe2.getY() + pipe2.getHeight() + 45, 24, 14);
 
     batcher.draw(skullUp, pipe3.getX() - 1,
-            pipe3.getY() + pipe3.getHeight() - 14, 24, 14);
+        pipe3.getY() + pipe3.getHeight() - 14, 24, 14);
     batcher.draw(skullDown, pipe3.getX() - 1,
-            pipe3.getY() + pipe3.getHeight() + 45, 24, 14);
+        pipe3.getY() + pipe3.getHeight() + 45, 24, 14);
   }
 
   private void drawPipes() {
     // Temporary code! Sorry about the mess :)
     // We will fix this when we finish the Pipe class.
     batcher.draw(bar, pipe1.getX(), pipe1.getY(), pipe1.getWidth(),
-            pipe1.getHeight());
+        pipe1.getHeight());
     batcher.draw(bar, pipe1.getX(), pipe1.getY() + pipe1.getHeight() + 45,
-            pipe1.getWidth(), midPointY + 66 - (pipe1.getHeight() + 45));
+        pipe1.getWidth(), midPointY + 66 - (pipe1.getHeight() + 45));
 
     batcher.draw(bar, pipe2.getX(), pipe2.getY(), pipe2.getWidth(),
-            pipe2.getHeight());
+        pipe2.getHeight());
     batcher.draw(bar, pipe2.getX(), pipe2.getY() + pipe2.getHeight() + 45,
-            pipe2.getWidth(), midPointY + 66 - (pipe2.getHeight() + 45));
+        pipe2.getWidth(), midPointY + 66 - (pipe2.getHeight() + 45));
 
     batcher.draw(bar, pipe3.getX(), pipe3.getY(), pipe3.getWidth(),
-            pipe3.getHeight());
+        pipe3.getHeight());
     batcher.draw(bar, pipe3.getX(), pipe3.getY() + pipe3.getHeight() + 45,
-            pipe3.getWidth(), midPointY + 66 - (pipe3.getHeight() + 45));
+        pipe3.getWidth(), midPointY + 66 - (pipe3.getHeight() + 45));
   }
 
   public void render(float runTime) {
@@ -164,14 +164,14 @@ public class GameRenderer {
 
     if (bird.shouldntFlap()) {
       batcher.draw(birdMid, bird.getX(), bird.getY(),
-              bird.getWidth() / 2.0f, bird.getHeight() / 2.0f,
-              bird.getWidth(), bird.getHeight(), 1, 1, bird.getRotation());
+          bird.getWidth() / 2.0f, bird.getHeight() / 2.0f,
+          bird.getWidth(), bird.getHeight(), 1, 1, bird.getRotation());
 
     } else {
       batcher.draw((TextureRegion) birdAnimation.getKeyFrame(runTime), bird.getX(),
-              bird.getY(), bird.getWidth() / 2.0f,
-              bird.getHeight() / 2.0f, bird.getWidth(), bird.getHeight(),
-              1, 1, bird.getRotation());
+          bird.getY(), bird.getWidth() / 2.0f,
+          bird.getHeight() / 2.0f, bird.getWidth(), bird.getHeight(),
+          1, 1, bird.getRotation());
     }
 
     // Convert integer into String
@@ -179,10 +179,10 @@ public class GameRenderer {
 
     // Draw shadow first
     AssetLoader.shadow.draw(batcher, "" + myWorld.getScore(), (136 / 2)
-            - (3 * score.length()), 12);
+        - (3 * score.length()), 12);
     // Draw text
     AssetLoader.font.draw(batcher, "" + myWorld.getScore(), (136 / 2)
-            - (3 * score.length() - 1), 11);
+        - (3 * score.length() - 1), 11);
 
     batcher.end();
 
